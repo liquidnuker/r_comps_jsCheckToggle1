@@ -1,45 +1,43 @@
-const checkToggle1 = {
-  items: [],
-  selectedItems: [],
-  init: function (elmSel) {
-    this.items = document.querySelectorAll(elmSel);
-    this.addEvents();
-  },
-  addEvents: function () {
+const checkToggle1 = (function () {
+  let items = [];
+  let selectedItems = [];
+
+  function init(selector) {
+    items = document.querySelectorAll(selector);
+    addEvents();
+  }
+
+  function addEvents() {
     NodeList.prototype.checkToggle1_EventListener = function (event, func) {
       this.forEach(function (content, item) {
         content.addEventListener(event, func);
       });
     };
 
-    this.items.checkToggle1_EventListener("click", function (event) {
-      checkToggle1.check(event.target);
+    items.checkToggle1_EventListener("click", function (event) {
+      check(event.target);
     });
 
     document.getElementById("btn_checkAll").addEventListener("click", function () {
-      checkToggle1.checkAll(true);
+      checkAll(true);
     });
 
     document.getElementById("btn_unCheckAll").addEventListener("click", function () {
-      checkToggle1.checkAll(false);
+      checkAll(false);
     });
-  },
-  check: function (item) {
-    let selectedItems = this.selectedItems;
+  }
 
+  function check(item) {
     if (item.checked) {
       selectedItems.push(item.value);
     } else {
       let index = selectedItems.indexOf(item.value);
       selectedItems.splice(index, 1);
     }
-    this.selectedItems = selectedItems;
-    this.refresh();
-  },
-  checkAll: function (checked) {
-    let items = this.items;
-    let selectedItems = this.selectedItems;
+    refresh();
+  }
 
+  function checkAll(checked) {
     for (let i in items) {
       items[i].checked = checked;
     }
@@ -54,12 +52,16 @@ const checkToggle1 = {
     } else {
       selectedItems = [];
     }
-    this.selectedItems = selectedItems;
-    this.refresh();
-  },
-  refresh: function () {
-    document.getElementById("selectedItems").innerHTML = this.selectedItems;
+    refresh();
   }
-};
+
+  function refresh() {
+    document.getElementById("selectedItems").innerHTML = selectedItems;
+  }
+
+  return {
+    init: init
+  };
+})();
 
 checkToggle1.init(".jscheck1-01 > input");
