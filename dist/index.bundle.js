@@ -1,1 +1,147 @@
-!function(e){function n(r){if(t[r])return t[r].exports;var c=t[r]={i:r,l:!1,exports:{}};return e[r].call(c.exports,c,c.exports,n),c.l=!0,c.exports}var t={};n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="dist/",n(n.s=0)}([function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=t(1),c=(t.n(r),t(2));t.n(c)},function(e,n){},function(e,n){(function(){function e(e){i=document.querySelectorAll(e),n()}function n(){NodeList.prototype.checkToggle1_EventListener=function(e,n){this.forEach(function(t,r){t.addEventListener(e,n)})},i.checkToggle1_EventListener("click",function(e){t(e.target)}),document.getElementById("btn_checkAll").addEventListener("click",function(){r(!0)}),document.getElementById("btn_unCheckAll").addEventListener("click",function(){r(!1)})}function t(e){if(e.checked)o.push(e.value);else{var n=o.indexOf(e.value);o.splice(n,1)}c()}function r(e){for(var n in i)i[n].checked=e;if(e){o=[];var t=!0,r=!1,u=void 0;try{for(var l,f=i[Symbol.iterator]();!(t=(l=f.next()).done);t=!0){var a=l.value;o.push(a.value)}}catch(e){r=!0,u=e}finally{try{!t&&f.return&&f.return()}finally{if(r)throw u}}}else o=[];c()}function c(){document.getElementById("selectedItems").innerHTML=o}var i=[],o=[];return{init:e}})().init(".jscheck1-01 > input")}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "dist/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_scss__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_main_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__styles_main_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_jschecktoggle1_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_jschecktoggle1_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__js_jschecktoggle1_js__);
+
+
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CheckToggle1 = function () {
+  function CheckToggle1(opts) {
+    _classCallCheck(this, CheckToggle1);
+
+    this.items = [];
+    this.selectedItems = [];
+
+    this.checkBoxes = opts.checkBoxes;
+  }
+
+  _createClass(CheckToggle1, [{
+    key: "init",
+    value: function init() {
+      this.items = document.querySelectorAll(this.checkBoxes);
+      this.addEvents();
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var itemArr = Array.prototype.slice.call(this.items);
+
+      var self = this;
+      itemArr.forEach(function (i) {
+        i.addEventListener("click", function (event) {
+          self.check(event.target);
+        });
+      });
+    }
+  }, {
+    key: "check",
+    value: function check(item) {
+      var selectedItems = this.selectedItems;
+
+      if (item.checked) {
+        selectedItems.push(item.value);
+      } else {
+        var index = selectedItems.indexOf(item.value);
+        selectedItems.splice(index, 1);
+      }
+      this.refresh();
+    }
+  }]);
+
+  return CheckToggle1;
+}();
+
+var CT1 = new CheckToggle1({
+  checkBoxes: ".jscheck1-01 > input"
+});
+
+CT1.init();
+
+/***/ })
+/******/ ]);

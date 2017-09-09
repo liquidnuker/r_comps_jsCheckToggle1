@@ -1,67 +1,42 @@
-const checkToggle1 = (function () {
-  let items = [];
-  let selectedItems = [];
+class CheckToggle1 {
+  constructor(opts) {
+    this.items = [];
+    this.selectedItems = [];
 
-  function init(selector) {
-    items = document.querySelectorAll(selector);
-    addEvents();
+    this.checkBoxes = opts.checkBoxes;
   }
 
-  function addEvents() {
-    NodeList.prototype.checkToggle1_EventListener = function (event, func) {
-      this.forEach(function (content, item) {
-        content.addEventListener(event, func);
-      });
-    };
+  init() {
+    this.items = document.querySelectorAll(this.checkBoxes);
+    this.addEvents();
+  }
 
-    items.checkToggle1_EventListener("click", function (event) {
-      check(event.target);
-    });
+  addEvents() {
+    let itemArr = Array.prototype.slice.call(this.items);
 
-    document.getElementById("btn_checkAll").addEventListener("click", function () {
-      checkAll(true);
-    });
-
-    document.getElementById("btn_unCheckAll").addEventListener("click", function () {
-      checkAll(false);
+    let self = this;
+    itemArr.forEach(function(i) {
+        i.addEventListener("click", function(event) {
+          self.check(event.target)
+        });
     });
   }
 
-  function check(item) {
+  check(item) {
+    let selectedItems = this.selectedItems;
+      
     if (item.checked) {
       selectedItems.push(item.value);
     } else {
       let index = selectedItems.indexOf(item.value);
       selectedItems.splice(index, 1);
     }
-    refresh();
+    this.refresh();
   }
+}
 
-  function checkAll(checked) {
-    for (let i in items) {
-      items[i].checked = checked;
-    }
+let CT1 = new CheckToggle1({
+  checkBoxes: ".jscheck1-01 > input"
+});
 
-    // push / empty selectedItems
-    if (checked) {
-      selectedItems = [];
-      // for NodeList
-      for (let i of items) {
-        selectedItems.push(i.value);
-      }
-    } else {
-      selectedItems = [];
-    }
-    refresh();
-  }
-
-  function refresh() {
-    document.getElementById("selectedItems").innerHTML = selectedItems;
-  }
-
-  return {
-    init: init
-  };
-})();
-
-checkToggle1.init(".jscheck1-01 > input");
+CT1.init();
