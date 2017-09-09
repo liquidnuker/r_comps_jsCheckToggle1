@@ -95,10 +95,15 @@ var CheckToggle1 = function () {
   function CheckToggle1(opts) {
     _classCallCheck(this, CheckToggle1);
 
-    this.items = [];
+    // this.items = [];
     this.selectedItems = [];
 
     this.checkBoxes = opts.checkBoxes;
+    this.selectedItemHolder = opts.selectedItemHolder;
+    this.btnCheckAll = opts.btnCheckAll;
+    this.btnUncheckAll = opts.btnUncheckAll;
+
+    this.checkedAll = opts.checkedAll;
   }
 
   _createClass(CheckToggle1, [{
@@ -106,10 +111,13 @@ var CheckToggle1 = function () {
     value: function init() {
       this.items = document.querySelectorAll(this.checkBoxes);
       this.addEvents();
+      this.checkAll(this.checkedAll);
     }
   }, {
     key: "addEvents",
     value: function addEvents() {
+      var _this = this;
+
       var itemArr = Array.prototype.slice.call(this.items);
 
       var self = this;
@@ -117,6 +125,14 @@ var CheckToggle1 = function () {
         i.addEventListener("click", function (event) {
           self.check(event.target);
         });
+      });
+
+      document.getElementById(this.btnCheckAll).addEventListener("click", function () {
+        _this.checkAll(true);
+      });
+
+      document.getElementById(this.btnUncheckAll).addEventListener("click", function () {
+        _this.checkAll(false);
       });
     }
   }, {
@@ -132,13 +148,68 @@ var CheckToggle1 = function () {
       }
       this.refresh();
     }
+  }, {
+    key: "checkAll",
+    value: function checkAll(checked) {
+      var selectedItems = this.selectedItems;
+      var items = this.items;
+
+      for (var i in items) {
+        items[i].checked = checked;
+      }
+
+      // push / empty selectedItems
+      if (checked) {
+        selectedItems = [];
+        // for NodeList
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = items[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var _i = _step.value;
+
+            selectedItems.push(_i.value);
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      } else {
+        selectedItems = [];
+      }
+
+      this.items = items;
+      this.selectedItems = selectedItems;
+      this.refresh();
+    }
+  }, {
+    key: "refresh",
+    value: function refresh() {
+      document.getElementById(this.selectedItemHolder).innerHTML = this.selectedItems;
+    }
   }]);
 
   return CheckToggle1;
 }();
 
 var CT1 = new CheckToggle1({
-  checkBoxes: ".jscheck1-01 > input"
+  checkBoxes: ".jscheck1-01 > input",
+  selectedItemHolder: "selectedItems",
+  btnCheckAll: "btn_checkAll",
+  btnUncheckAll: "btn_unCheckAll",
+  checkedAll: true // default
 });
 
 CT1.init();
