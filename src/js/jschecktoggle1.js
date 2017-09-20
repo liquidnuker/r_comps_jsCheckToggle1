@@ -79,9 +79,9 @@ class CheckToggle1 {
 
 let CT1 = new CheckToggle1({
   checkBoxes: ".jscheck1-01 > input",
-  selectedItemHolder: "selectedItems",
-  btnCheckAll: "btn_checkAll",
-  btnUncheckAll: "btn_unCheckAll",
+  selectedItemHolder: "jscheck1-01_selectedItems",
+  btnCheckAll: "jscheck1-01_btn_checkAll",
+  btnUncheckAll: "jscheck1-01_btn_unCheckAll",
   checkedAll: true // default
 });
 
