@@ -7,6 +7,18 @@
   .row:after {
     clear: both; }
 
+.jscheck1-02 .jscheck1-02_bg {
+  position: relative; }
+
+.jscheck1-02 {
+  display: block; }
+
+.btn, .jscheck1-02 .jscheck1-02_vlabel, .jscheck1-02 .jscheck1-02_bg, .jscheck1-02 .jscheck1-02_switch {
+  display: inline-block; }
+
+.jscheck1-02 input[type=checkbox] {
+  display: none; }
+
 input, textarea, select, html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -26,7 +38,7 @@ input [type="button"],
   margin: 0;
   padding: 0; }
 
-.btn1-01 {
+.btn1-01, .jscheck1-02 {
   padding: 4px; }
 
 *,
@@ -504,12 +516,12 @@ input [type="button"],
   font-family: sans-serif; }
 
 .btn {
-  display: inline-block;
   font-size: 100%;
   line-height: 1.15; }
 
 .btn1-01 {
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  cursor: pointer; }
 
 .container-fluid {
   padding-left: 0;
@@ -792,6 +804,46 @@ input [type="button"],
     width: 16.66666667%; }
   .col-lg-1 {
     width: 8.33333333%; } }
+
+.jscheck1-02 {
+  background-color: #141416; }
+  .jscheck1-02 label {
+    color: #f0f0f0; }
+  .jscheck1-02 .jscheck1-02_bg {
+    background-color: #2a2a2d;
+    border: 1px solid #5c5d60; }
+  .jscheck1-02 .jscheck1-02_switch {
+    background-color: #fff;
+    border: 1px solid #000; }
+  .jscheck1-02 input:checked + .jscheck1-02_bg {
+    background-color: #f6f6f6; }
+  .jscheck1-02 input:checked + .jscheck1-02_bg > .jscheck1-02_switch {
+    background-color: #be0101;
+    border: 1px solid #fff; }
+  .jscheck1-02 input:disabled + .jscheck1-02_bg {
+    background-color: #ccc; }
+  .jscheck1-02 input:disabled + .jscheck1-02_bg > .jscheck1-02_switch {
+    background-color: #eee; }
+
+.jscheck1-02 input[type=checkbox] {
+  height: 0;
+  width: 0; }
+
+.jscheck1-02 .jscheck1-02_vlabel {
+  margin-bottom: 6px; }
+
+.jscheck1-02 .jscheck1-02_bg {
+  border-radius: 50px;
+  width: 40px; }
+
+.jscheck1-02 .jscheck1-02_switch {
+  border-radius: 50px;
+  height: 20px;
+  width: 20px;
+  transition: 0.1s; }
+
+.jscheck1-02 input:checked + .jscheck1-02_bg > .jscheck1-02_switch {
+  margin-left: 20px; }
 
 body:before {
   background-color: #FCF8E3;

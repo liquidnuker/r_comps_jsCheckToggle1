@@ -204,15 +204,27 @@ var CheckToggle1 = function () {
   return CheckToggle1;
 }();
 
+// jscheck1-01
+
+
 var CT1 = new CheckToggle1({
   checkBoxes: ".jscheck1-01 > input",
-  selectedItemHolder: "selectedItems",
-  btnCheckAll: "btn_checkAll",
-  btnUncheckAll: "btn_unCheckAll",
+  selectedItemHolder: "jscheck1-01_selectedItems",
+  btnCheckAll: "jscheck1-01_btn_checkAll",
+  btnUncheckAll: "jscheck1-01_btn_unCheckAll",
   checkedAll: true // default
 });
-
 CT1.init();
+
+// jscheck1-02
+var CT2 = new CheckToggle1({
+  checkBoxes: ".jscheck1-02 > input",
+  selectedItemHolder: "jscheck1-02_selectedItems",
+  btnCheckAll: "jscheck1-02_btn_checkAll",
+  btnUncheckAll: "jscheck1-02_btn_unCheckAll",
+  checkedAll: true // default
+});
+CT2.init();
 
 /***/ })
 /******/ ]);

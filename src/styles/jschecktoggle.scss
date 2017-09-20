@@ -1,0 +1,96 @@
+// jscheck1-02
+// ==================================================/
+@mixin jscheck1-02_theme() {
+  .jscheck1-02 {
+    background-color: #141416;
+
+    label {
+      color: #f0f0f0;
+    }
+
+    .jscheck1-02_bg {
+      background-color: #2a2a2d;
+      border: 1px solid #5c5d60;
+    }
+
+    .jscheck1-02_switch {
+      background-color: #fff;
+      border: 1px solid #000;
+    }
+
+    input:checked + .jscheck1-02_bg {
+      background-color: #f6f6f6;
+    }
+
+    input:checked + .jscheck1-02_bg > .jscheck1-02_switch{
+      background-color: #be0101;
+      border: 1px solid #fff;
+    }
+
+    input:disabled + .jscheck1-02_bg {
+      background-color: #ccc;
+    }
+
+    input:disabled + .jscheck1-02_bg > .jscheck1-02_switch {
+      background-color: #eee; 
+    }
+  }
+}
+@include jscheck1-02_theme();
+
+.jscheck1-02 {
+  @extend %display--block;
+  @extend %padd--4;
+  // @extend %margin-bottom--4;
+  // for preview only; use the extender above for actual usage
+  // width: 126px;
+    
+  input[type=checkbox]{
+    @extend %display--none;
+    height: 0;
+    width: 0;    
+  }
+
+  .jscheck1-02_vlabel {
+    @extend %display--inline-block;
+    margin-bottom: 6px;
+  }
+
+  .jscheck1-02_bg {
+    @extend %pos--relative;
+    @extend %display--inline-block;
+    border-radius: 50px;
+    width: 40px;
+  }
+
+  .jscheck1-02_switch {
+    @extend %display--inline-block;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+    transition: 0.1s;
+  }
+
+  input:checked + .jscheck1-02_bg {
+    
+  }
+
+  input:checked + .jscheck1-02_bg > .jscheck1-02_switch {
+    margin-left: 20px;
+    // left: calc(100%);
+    // transform: translateX(100%);
+  }
+
+  // input:checked ~ .jscheck1-02_vlabel:after {
+  //    content: 'on';
+  // }
+
+  // disabled
+  input:disabled + .jscheck1-02_bg {
+    
+  }
+
+  input:disabled + .jscheck1-02_bg >.jscheck1-02_switch {
+    
+  }
+}

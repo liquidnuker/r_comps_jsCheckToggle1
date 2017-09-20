@@ -12,6 +12,8 @@
 @import "vendor/mq"; 
 @import "layout/grid";
 
+@import "jschecktoggle";
+
 // show the active breakpoint (_mq.scss)
 // ==================================================/
 @include mq-show-breakpoints;

@@ -20,7 +20,7 @@ input [type="button"],
 .btn {
   @extend %mp--0;
   @extend %btn_font--sans-serif;
-  display: inline-block;
+  @extend %display--inline-block;
   font-size: 100%; 
   line-height: 1.15;  
 }
@@ -30,4 +30,5 @@ input [type="button"],
 .btn1-01 {
   @extend %padd--4;
   border: 1px solid #000;
+  cursor: pointer;
 }

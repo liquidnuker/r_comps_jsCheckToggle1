@@ -16,18 +16,58 @@
   <![endif]-->
 </head>
 <body>
-  <div class="jscheck1-01">
-    <input type="checkbox" name="check1" id="check1_01" value="item1">
-    <label for="check1_01">item1</label><br>
-    <input type="checkbox" name="check1" id="check1_02" value="item2">
-    <label for="check1_02">item2</label><br>
-    <input type="checkbox" name="check1" id="check1_03" value="item3">
-    <label for="check1_03">item3</label>
+  <div class="row container">
+    <div class="col-sm-3">
+      <!-- jsCheck1-01 -->
+      <div class="jscheck1-01">
+        <input type="checkbox" name="check1" id="check1_01" value="item1">
+        <label for="check1_01">item1</label><br>
+        <input type="checkbox" name="check1" id="check1_02" value="item2">
+        <label for="check1_02">item2</label><br>
+        <input type="checkbox" name="check1" id="check1_03" value="item3">
+        <label for="check1_03">item3</label>
+      </div>
+      <button id="jscheck1-01_btn_checkAll" class="btn btn1-01">checkAll</button>
+      <button id="jscheck1-01_btn_unCheckAll" class="btn btn1-01">unCheckAll</button>
+      <p>Selected: <span id="jscheck1-01_selectedItems"></span></p>
+      <!-- end jscheck1-01-->
+    </div>
+    <div class="col-sm-3">
+      <!-- jscheck1-02 -->
+      <span class="jscheck1-02">
+        <!-- check1 -->
+        <input type="checkbox" id="jscheck1-02_checkbox1" value="item1" />
+        <label for="jscheck1-02_checkbox1" role="checkbox" class="jscheck1-02_bg">
+          <span class="jscheck1-02_switch">
+            &nbsp;
+          </span>
+        </label>
+        <label for="jscheck1-02_checkbox1" class="jscheck1-02_vlabel">
+          Item1
+        </label>
+        <br>
+        
+        <!-- check2 -->
+        <input type="checkbox" id="jscheck1-02_checkbox2" value="item2" />
+        <label for="jscheck1-02_checkbox2" role="checkbox" class="jscheck1-02_bg">
+          <span class="jscheck1-02_switch">
+            &nbsp;
+          </span>
+        </label>
+        <label for="jscheck1-02_checkbox2" class="jscheck1-02_vlabel">
+          Item2
+        </label>
+      </span>
+      <button id="jscheck1-02_btn_checkAll" class="btn btn1-01">checkAll</button>
+      <button id="jscheck1-02_btn_unCheckAll" class="btn btn1-01">unCheckAll</button>
+      <p>Selected: <span id="jscheck1-02_selectedItems"></span></p>
+      <!-- end jscheck1-02 -->
+    </div>
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3">
+    </div>
   </div>
-  <button id="jscheck1-01_btn_checkAll">checkAll</button>
-  <button id="jscheck1-01_btn_unCheckAll">unCheckAll</button>
-  <p>Selected: <span id="jscheck1-01_selectedItems"></span></p>
-
 </body>
 <script src="dist/index.bundle.js"></script>
 </html>
