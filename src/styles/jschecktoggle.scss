@@ -94,3 +94,79 @@
     
   }
 }
+
+// jscheck1-03
+// ==================================================/
+@mixin jscheck1-03_theme() {
+  .jscheck1-03 {
+    background-color: #141416;
+
+    label {
+      color: #f0f0f0;
+    }
+
+    .jscheck1-03_bg {
+      background-color: #eee;
+      border: 1px solid #000;
+    }
+
+    input:checked + .jscheck1-03_bg {
+      background-color: pink;
+    }
+
+    input:disabled ~ .jscheck1-03_bg {
+      background-color: #ccc;
+    }
+  }
+}
+@include jscheck1-03_theme();
+
+.jscheck1-03 {
+  @extend %display--block;
+  @extend %padd--4;
+  // @include center-both; // for preview only; use the extender above for actual usage
+  
+  input[type=checkbox]{
+    @extend %display--none;
+    height: 0;
+    width: 0;
+  }
+
+  .jscheck1-03_vlabel {
+    @extend %display--inline-block;
+    margin-bottom: 6px;
+  }
+
+  .jscheck1-03_vlabel:last-of-type {
+    // @extend %display--inline-block;
+    // margin-bottom: 6px;
+  }
+
+  .jscheck1-03_bg {
+    @extend %pos--relative;
+    @extend %display--inline-block;    
+    width: 18px;
+    height: 18px;
+  }
+
+  input:checked + .jscheck1-03_bg {
+    @extend %pos--relative;
+  }
+
+  input:checked + .jscheck1-03_bg:after {
+    @include center-both;
+    @extend %pos--absolute;
+    content: url('../img/icons/check1.svg'); 
+    width: 20px; 
+    height: 20px;
+  }
+
+  // input:checked ~ .checkToggle1-01_vlabel:after {
+  //    content: 'on';
+  // }
+
+  // disabled
+  input:disabled ~ .jscheck1-03_bg {
+    
+  }
+}

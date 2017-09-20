@@ -7,16 +7,19 @@
   .row:after {
     clear: both; }
 
-.jscheck1-02 .jscheck1-02_bg {
+.jscheck1-03 input:checked + .jscheck1-03_bg:after {
+  position: absolute; }
+
+.jscheck1-02 .jscheck1-02_bg, .jscheck1-03 .jscheck1-03_bg, .jscheck1-03 input:checked + .jscheck1-03_bg {
   position: relative; }
 
-.jscheck1-02 {
+.jscheck1-02, .jscheck1-03 {
   display: block; }
 
-.btn, .jscheck1-02 .jscheck1-02_vlabel, .jscheck1-02 .jscheck1-02_bg, .jscheck1-02 .jscheck1-02_switch {
+.btn, .jscheck1-02 .jscheck1-02_vlabel, .jscheck1-02 .jscheck1-02_bg, .jscheck1-02 .jscheck1-02_switch, .jscheck1-03 .jscheck1-03_vlabel, .jscheck1-03 .jscheck1-03_bg {
   display: inline-block; }
 
-.jscheck1-02 input[type=checkbox] {
+.jscheck1-02 input[type=checkbox], .jscheck1-03 input[type=checkbox] {
   display: none; }
 
 input, textarea, select, html, body, div, span, applet, object, iframe,
@@ -38,7 +41,7 @@ input [type="button"],
   margin: 0;
   padding: 0; }
 
-.btn1-01, .jscheck1-02 {
+.btn1-01, .jscheck1-02, .jscheck1-03 {
   padding: 4px; }
 
 *,
@@ -844,6 +847,40 @@ input [type="button"],
 
 .jscheck1-02 input:checked + .jscheck1-02_bg > .jscheck1-02_switch {
   margin-left: 20px; }
+
+.jscheck1-03 {
+  background-color: #141416; }
+  .jscheck1-03 label {
+    color: #f0f0f0; }
+  .jscheck1-03 .jscheck1-03_bg {
+    background-color: #eee;
+    border: 1px solid #000; }
+  .jscheck1-03 input:checked + .jscheck1-03_bg {
+    background-color: pink; }
+  .jscheck1-03 input:disabled ~ .jscheck1-03_bg {
+    background-color: #ccc; }
+
+.jscheck1-03 input[type=checkbox] {
+  height: 0;
+  width: 0; }
+
+.jscheck1-03 .jscheck1-03_vlabel {
+  margin-bottom: 6px; }
+
+.jscheck1-03 .jscheck1-03_bg {
+  width: 18px;
+  height: 18px; }
+
+.jscheck1-03 input:checked + .jscheck1-03_bg:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHBhdGggZD0iTSA0MCwxMSAxOCwzMyA3LDIyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iOC4yNSIvPjwvc3ZnPg==);
+  width: 20px;
+  height: 20px; }
 
 body:before {
   background-color: #FCF8E3;

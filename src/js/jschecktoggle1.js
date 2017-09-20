@@ -96,3 +96,13 @@ let CT2 = new CheckToggle1({
   checkedAll: true // default
 });
 CT2.init();
+
+// jscheck1-03
+let CT3 = new CheckToggle1({
+  checkBoxes: ".jscheck1-03 > input",
+  selectedItemHolder: "jscheck1-03_selectedItems",
+  btnCheckAll: "jscheck1-03_btn_checkAll",
+  btnUncheckAll: "jscheck1-03_btn_unCheckAll",
+  checkedAll: true // default
+});
+CT3.init();
