@@ -20,10 +20,9 @@ class CheckToggle1 {
   addEvents() {
     let itemArr = Array.prototype.slice.call(this.items);
 
-    let self = this;
-    itemArr.forEach(function (i) {
-      i.addEventListener("click", function (event) {
-        self.check(event.target);
+    itemArr.forEach((i) => {
+      i.addEventListener("change", (event) => {
+        this.check(event.target);
       });
     });
 
