@@ -1,6 +1,5 @@
 class CheckToggle1 {
   constructor(opts) {
-    // this.items = [];
     this.selectedItems = [];
 
     this.checkBoxes = opts.checkBoxes;
@@ -17,6 +16,10 @@ class CheckToggle1 {
     this.checkAll(this.checkedAll);
   }
 
+  getId(el) {
+    return document.getElementById(el);
+  }
+
   addEvents() {
     let itemArr = Array.prototype.slice.call(this.items);
 
@@ -26,53 +29,46 @@ class CheckToggle1 {
       });
     });
 
-    document.getElementById(this.btnCheckAll).addEventListener("click", () => {
+    this.getId(this.btnCheckAll).addEventListener("click", () => {
       this.checkAll(true);
     });
 
-    document.getElementById(this.btnUncheckAll).addEventListener("click", () => {
+    this.getId(this.btnUncheckAll).addEventListener("click", () => {
       this.checkAll(false);
     });
   }
 
   check(item) {
-    let selectedItems = this.selectedItems;
-
     if (item.checked) {
-      selectedItems.push(item.value);
+      this.selectedItems.push(item.value);
     } else {
-      let index = selectedItems.indexOf(item.value);
-      selectedItems.splice(index, 1);
+      let index = this.selectedItems.indexOf(item.value);
+      this.selectedItems.splice(index, 1);
     }
     this.refresh();
   }
 
   checkAll(checked) {
-    let selectedItems = this.selectedItems;
-    let items = this.items;
-
-    for (let i in items) {
-      items[i].checked = checked;
+    for (let i in this.items) {
+      this.items[i].checked = checked;
     }
 
     // push / empty selectedItems
     if (checked) {
-      selectedItems = [];
+      this.selectedItems = [];
       // for NodeList
-      for (let i of items) {
-        selectedItems.push(i.value);
+      for (let i of this.items) {
+        this.selectedItems.push(i.value);
       }
     } else {
-      selectedItems = [];
+      this.selectedItems = [];
     }
 
-    this.items = items;
-    this.selectedItems = selectedItems;
     this.refresh();
   }
 
   refresh() {
-    document.getElementById(this.selectedItemHolder).innerHTML = this.selectedItems;
+    this.getId(this.selectedItemHolder).innerHTML = this.selectedItems.sort();
   }
 }
 
